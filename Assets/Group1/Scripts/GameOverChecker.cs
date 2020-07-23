@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOverManager : MonoBehaviour
+public class GameOverChecker : MonoBehaviour
 {
     [SerializeField] private GameObject _endScreen;
-
     [SerializeField] private Player _player;
 
     private int _enemies;

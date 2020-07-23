@@ -5,13 +5,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _speed = 2;
-    [SerializeField] private float _radiusToNewTarget = 4;
+    [SerializeField] private float _movementRadius = 4;
 
     private Vector3 _target;
 
     private void Start()
     {
-        SetNewTarget();
+        InstallNewTarget();
     }
 
     private void Update()
@@ -19,11 +19,11 @@ public class Enemy : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
 
         if (transform.position == _target)
-            SetNewTarget();
+            InstallNewTarget();
     }
 
-    private void SetNewTarget()
+    private void InstallNewTarget()
     {
-        _target = Random.insideUnitCircle * _radiusToNewTarget;
+        _target = Random.insideUnitCircle * _movementRadius;
     }
 }

@@ -17,12 +17,13 @@ public class Player : MonoBehaviour
 
     private void Move(float x, float y)
     {
-        transform.Translate(x * _speed * Time.deltaTime, y * _speed * Time.deltaTime, 0);
+        float deltaTimeSpeed = _speed * Time.deltaTime;
+        transform.Translate(x * deltaTimeSpeed, y * deltaTimeSpeed, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out Enemy enemy))
+        if (collision.TryGetComponent(out Enemy enemy))
         {
             Destroy(enemy.gameObject);
             EnemyKilled?.Invoke();
